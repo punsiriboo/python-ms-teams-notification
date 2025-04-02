@@ -5,7 +5,10 @@ import logging as log
 
 HTTP_STATUS_OK = [200, 201, 202, 204]
 
-def create_adaptive_card(header_text="MS Teams Notification", message_body="Sample message body"):
+
+def create_adaptive_card(
+    header_text="MS Teams Notification", message_body="Sample message body"
+):
     """Create and return an adaptive card."""
     return {
         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
@@ -47,23 +50,25 @@ def send_adaptive_card_to_ms_teams(webhook, adaptive_card):
     headers = {"Content-Type": "application/json"}
     response = requests.post(webhook, data=payload, headers=headers)
 
-
     if response.status_code in HTTP_STATUS_OK:
-        log.info(f"[{response.status_code}] Successfully called send notification to MS Team")
-    else:
-        log.error(f"[{response.status_code}] Failed to send message to MS Team Webhook API")
-        log.error(
-            f"Status code: {response.status_code}, Response: {response.text}"
+        log.info(
+            f"[{response.status_code}] Successfully called send notification to MS Team"
         )
+    else:
+        log.error(
+            f"[{response.status_code}] Failed to send message to MS Team Webhook API"
+        )
+        log.error(f"Status code: {response.status_code}, Response: {response.text}")
 
 
-from dotenv import load_dotenv
-load_dotenv(override=True)
 # Example usage
 if __name__ == "__main__":
-    
     # Load environment variables from .env file
-    webhook_url = os.getenv("MS_TEAMS_WEBHOOK")
+    from dotenv import load_dotenv
+
+    load_dotenv(override=True)
+
+    webhook_url = os.getenv("MS_TEAMS_WEBHOOK", "PUT_YOUR_WEBHOOK_URL_HERE")
     print(f"Webhook URL: {webhook_url}")
     body = os.getenv("SAMPLE_MESSAGE_BODY", "Sample message body")
     adaptive_card = create_adaptive_card(message_body=body)

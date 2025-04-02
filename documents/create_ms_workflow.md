@@ -7,6 +7,8 @@
 ![ขั้นตอนที่ 1](../images/create_ms_workflow_step_1.png)
 ![ขั้นตอนที่ 2](../images/create_ms_workflow_step_2.png)
 - สร้่าง Team และ Channel ใหม่
+- ระบุชื่อทีม และ ชื่อ Channel 
+- กด "Create"
 
 
 ### ขั้นตอนที่ 2: หากมี Teams และไม่มี Channel

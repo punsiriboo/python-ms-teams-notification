@@ -1,0 +1,4 @@
+export PROJECT_ID=YOUR-PROJECT_ID
+export REGION=asia-southeast1
+export FUNCTION_NAME=ops-notification-webhook
+export ENTRY_POINT=send_ms_teams_notification
