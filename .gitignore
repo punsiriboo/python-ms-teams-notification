@@ -1,0 +1,13 @@
+# IGNORE ITEM
+logs/
+cred/
+.env
+tempfiles/
+cache/
+__pycache__/
+*.log
+.venv
+.vscode
+.vscode/settings.json
+init.sh
+.DS_Store
