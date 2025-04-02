@@ -72,4 +72,7 @@ if __name__ == "__main__":
     print(f"Webhook URL: {webhook_url}")
     body = os.getenv("SAMPLE_MESSAGE_BODY", "Sample message body")
     adaptive_card = create_adaptive_card(message_body=body)
-    send_adaptive_card_to_ms_teams(webhook_url, adaptive_card)
+    send_adaptive_card_to_ms_teams(
+        webhook_url,
+        adaptive_card,
+    )
